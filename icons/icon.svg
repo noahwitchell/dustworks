@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <!-- full-bleed square: iOS / Android round the corners themselves -->
+  <rect width="512" height="512" fill="#151a27"/>
+  <!-- the rock, running off the bottom edge -->
+  <circle cx="256" cy="760" r="470" fill="#b9b1c4"/>
+  <ellipse cx="128" cy="400" rx="56" ry="20" fill="#a39aaf"/>
+  <ellipse cx="134" cy="404" rx="44" ry="13" fill="#b9b1c4"/>
+  <ellipse cx="404" cy="430" rx="40" ry="14" fill="#a39aaf"/>
+  <ellipse cx="409" cy="433" rx="31" ry="9" fill="#b9b1c4"/>
+  <!-- junk piles resting well inside the surface -->
+  <ellipse cx="96" cy="356" rx="34" ry="11" fill="#7b6f86"/>
+  <ellipse cx="420" cy="364" rx="36" ry="11" fill="#7b6f86"/>
+  <!-- the bot's shadow on the ground -->
+  <ellipse cx="256" cy="318" rx="104" ry="18" fill="#9b92a8"/>
+  <!-- rotor arm + mast, one connected piece -->
+  <rect x="104" y="168" width="304" height="18" rx="9" fill="#2a3044"/>
+  <rect x="236" y="168" width="40" height="44" fill="#2a3044"/>
+  <!-- rotors sit on the arm ends -->
+  <rect x="44" y="148" width="136" height="22" rx="11" fill="#eef0f6"/>
+  <rect x="332" y="148" width="136" height="22" rx="11" fill="#eef0f6"/>
+  <rect x="100" y="148" width="24" height="38" rx="8" fill="#2a3044"/>
+  <rect x="388" y="148" width="24" height="38" rx="8" fill="#2a3044"/>
+  <!-- body: one capsule, lower half shaded through a clip so the outline stays clean -->
+  <defs><clipPath id="body"><rect x="160" y="196" width="192" height="108" rx="54"/></clipPath></defs>
+  <rect x="160" y="196" width="192" height="108" rx="54" fill="#ffc93c"/>
+  <rect x="160" y="268" width="192" height="40" fill="#e0a91f" clip-path="url(#body)"/>
+  <!-- visor -->
+  <rect x="196" y="214" width="120" height="44" rx="22" fill="#1c2233"/>
+  <circle cx="232" cy="236" r="9" fill="#7fe0a8"/>
+  <circle cx="280" cy="236" r="9" fill="#7fe0a8"/>
+  <!-- suction nozzle, joined to the body -->
+  <path d="M226 296 H286 L300 326 Q300 332 294 332 H218 Q212 332 212 326 Z" fill="#2a3044"/>
+</svg>
