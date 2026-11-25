@@ -7,6 +7,7 @@
 - Storage machines (bin, vac, hive) push onto any adjacent belt pointing away from them. Belts carry the player too.
 - World 112×80 tiles; ground cached in ONE canvas at GS 1.25 (under iOS 16.7M px limit) with per-tile redraw (`redrawTile`). Bots/drones fly; the player collides with boulders, machines and vents.
 - Balance (2026-11-24): scripted player sim (walks to nearest junk, buys suit → bots → hives → caps) finishes in ~55 min game time with 25 bots + 72 drones, 93% of recycling done by machines. Crystal is the bottleneck. Re-run that sim via the `__dw` debug handle after changing numbers.
+- Controls: Walk tool drag = floating joystick, tap = inspect; build tools act on one finger; two fingers pan/pinch (camera stops following until you walk or tap Find me). Minimap bottom-left, tap to look. Mouse: wheel zoom, right-drag pan.
 - Steady interface: controls hold size/position; disable, don't remove.
 - Save: localStorage `dustworks.v2` (autosave 10 s + on hide); v1 saves are ignored.
 - Icon: drone bot sitting on the rock's horizon, full-bleed square, everything joined (Noah: no loose edges, corners or floating bits). Rebuild: `zsh tools/render_icons.sh`.
