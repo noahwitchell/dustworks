@@ -148,3 +148,31 @@ button:focus-visible, select:focus-visible { outline: 2px solid var(--accent); o
   #panel { top: auto; height: 55vh; left: 12px; width: auto; }
 }
 @media (prefers-reduced-motion: reduce) { .bar i, #toast { transition: none; } }
+
+/* v2: stock, backpack, costs, locks, minimap */
+.stats { gap: 16px; }
+.resrow { display: flex; gap: 10px; grid-column: 1 / -1; }
+.resrow .r { display: flex; align-items: center; gap: 5px; }
+.dot { width: 9px; height: 9px; border-radius: 3px; display: inline-block; }
+.d0 { background: #a99cb6; } .d1 { background: #8fb0cc; } .d2 { background: #3fd8c8; transform: rotate(45deg); border-radius: 1px; }
+.stat.res { grid-template-columns: auto; }
+.stat.res .sub { grid-column: 1 / -1; color: var(--good); }
+.stat.pack, .stat.clean { grid-template-columns: 96px auto; align-items: center; }
+.num.sm { font-size: 15px; min-width: 6.5ch; }
+#packBar.full { background: var(--bad); }
+.cost { display: inline-flex; align-items: center; gap: 4px; margin-left: 6px; font-variant-numeric: tabular-nums; }
+.cost:first-child { margin-left: 0; }
+.cost i { width: 8px; height: 8px; border-radius: 2px; display: inline-block; }
+.btn .cost { margin-left: 8px; }
+.costs { grid-column: 2; grid-row: 1 / span 3; font: 600 13px var(--f-display); white-space: nowrap; }
+.shop-item .btn { min-width: 110px; }
+.tasks .r .cost { margin-left: 4px; }
+#toolbar button.locked { opacity: .45; }
+#toolbar button.locked i { color: var(--muted); }
+#toolbar i:empty { display: none; }
+#miniWrap { position: fixed; left: max(12px, var(--safe-l)); bottom: calc(var(--safe-b) + 12px); display: flex; flex-direction: column; gap: 6px; align-items: stretch; }
+#mini { width: 196px; height: 140px; border-radius: 10px; border: 1px solid var(--line); image-rendering: pixelated; background: var(--ink); cursor: pointer; touch-action: none; }
+#findMe { height: 36px; font-size: 13px; }
+#findMe:disabled { opacity: .4; }
+@media (max-width: 1100px) { #mini { width: 140px; height: 100px; } }
+@media (max-width: 860px) { #miniWrap { display: none; } .stat.vents { display: none; } .stat.pack, .stat.clean { grid-template-columns: 60px auto; } }
