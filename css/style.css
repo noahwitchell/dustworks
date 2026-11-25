@@ -176,3 +176,53 @@ button:focus-visible, select:focus-visible { outline: 2px solid var(--accent); o
 #findMe:disabled { opacity: .4; }
 @media (max-width: 1100px) { #mini { width: 140px; height: 100px; } }
 @media (max-width: 860px) { #miniWrap { display: none; } .stat.vents { display: none; } .stat.pack, .stat.clean { grid-template-columns: 60px auto; } }
+
+/* v3: alloy, palette, driving, title screen */
+.d3 { background: #ff9a5c; border-radius: 2px 2px 4px 4px; }
+.resrow { gap: 9px; }
+#toolbar .caret { position: absolute; top: 3px; right: 6px; font-size: 10px; color: var(--muted); }
+#machBtn.on .caret { color: var(--accent-ink); }
+#machBtn.locked { opacity: .45; }
+#palette { position: fixed; left: 50%; transform: translateX(-50%); bottom: calc(var(--safe-b) + 92px); width: min(620px, calc(100vw - 24px));
+  display: grid; grid-template-columns: repeat(auto-fill, minmax(190px, 1fr)); gap: 6px; padding: 8px;
+  background: color-mix(in srgb, var(--ink) 97%, transparent); border: 1px solid var(--line); border-radius: 16px; z-index: 5; }
+#palette button { display: flex; gap: 10px; align-items: center; text-align: left; min-height: 56px; padding: 8px 10px; border-radius: 10px; border: 1px solid transparent; background: var(--ink-2); }
+#palette button.on { border-color: var(--accent); }
+#palette button.locked { opacity: .5; }
+#palette button.poor .cost { color: var(--bad); }
+#palette svg { flex: none; width: 26px; height: 26px; fill: none; stroke: var(--text); stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; }
+#palette b { display: block; font: 600 14px var(--f-display); }
+#palette .pc { display: block; font-size: 12px; color: var(--muted); white-space: nowrap; }
+#palette .pc .cost { margin-left: 5px; }
+#palette .pc .cost:first-child { margin-left: 0; }
+#driveBar { position: fixed; right: max(12px, var(--safe-r)); bottom: calc(var(--safe-b) + 92px); display: flex; gap: 8px; align-items: center;
+  padding: 6px 6px 6px 14px; background: color-mix(in srgb, var(--ink) 94%, transparent); border: 1px solid var(--line); border-radius: 14px; }
+#driveBar .hbtn:disabled { opacity: .4; }
+.vdot { display: inline-block; width: 12px; height: 12px; border-radius: 4px; background: var(--line); margin-right: 6px; vertical-align: -1px; }
+.stalls li { grid-template-columns: 20px 1fr auto; }
+.stalls li.locked { opacity: .45; grid-template-columns: 1fr; }
+.stalls .t small { display: block; color: var(--muted); font-size: 12px; }
+.shop-item b .vdot { margin-right: 8px; }
+#autoArg { flex: 1 1 auto; height: 44px; border-radius: 10px; border: 1px solid var(--line); background: var(--ink); padding: 0 8px; }
+
+/* Title screen */
+body.at-title #hud, body.at-title #toolbar, body.at-title #miniWrap, body.at-title #hint, body.at-title #panel, body.at-title #palette { display: none; }
+#title { position: fixed; inset: 0; z-index: 20; overflow-y: auto; background: linear-gradient(180deg, rgba(21,26,39,.55), rgba(21,26,39,.88));
+  padding-block: calc(var(--safe-t) + 40px) calc(var(--safe-b) + 40px); padding-left: max(16px, var(--safe-l)); padding-right: max(16px, var(--safe-r)); }
+.title-inner { max-width: 1040px; margin: 0 auto; display: flex; flex-direction: column; gap: 28px; }
+.brand { display: flex; gap: 18px; align-items: center; }
+.brand img { border-radius: 18px; flex: none; }
+.brand h1 { margin: 0; font: 700 clamp(40px, 7vw, 64px)/1 var(--f-display); letter-spacing: .01em; }
+.brand p { margin: 6px 0 0; color: var(--muted); font-size: 16px; max-width: 46ch; }
+#slots { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 14px; }
+.slot { background: color-mix(in srgb, var(--ink) 95%, transparent); border: 1px solid var(--line); border-radius: 16px; padding: 18px; display: flex; flex-direction: column; gap: 12px; min-width: 0; }
+.slot h3 { margin: 0; font: 600 12px var(--f-body); text-transform: uppercase; letter-spacing: .09em; color: var(--muted); }
+.slot .empty { margin: 0; color: var(--muted); font: 600 20px var(--f-display); }
+.slot-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 6px 12px; }
+.slot-stats span { color: var(--muted); font-size: 13px; }
+.slot-stats b { color: var(--text); font: 700 20px var(--f-display); margin-right: 4px; font-variant-numeric: tabular-nums; }
+.slot-res { font: 600 14px var(--f-display); }
+.slot .when { margin: 0; color: var(--muted); font-size: 12px; }
+.slot .row .btn { flex: 1 1 auto; }
+.confirm { border-top: 1px solid var(--line); padding-top: 12px; display: flex; flex-direction: column; gap: 8px; }
+.confirm p { margin: 0; }

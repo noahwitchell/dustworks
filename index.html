@@ -23,9 +23,9 @@
   <header id="hud">
     <div class="card stats">
       <div class="stat res"><span class="lbl">Stock</span>
-        <span class="resrow"><span class="r"><i class="dot d0"></i><span id="res0" class="num">0</span></span><span class="r"><i class="dot d1"></i><span id="res1" class="num">0</span></span><span class="r"><i class="dot d2"></i><span id="res2" class="num">0</span></span></span>
+        <span class="resrow"><span class="r"><i class="dot d0"></i><span id="res0" class="num">0</span></span><span class="r"><i class="dot d1"></i><span id="res1" class="num">0</span></span><span class="r"><i class="dot d2"></i><span id="res2" class="num">0</span></span><span class="r"><i class="dot d3"></i><span id="res3" class="num">0</span></span></span>
         <span id="rate" class="sub">0/min</span></div>
-      <div class="stat pack"><span class="lbl">Backpack</span><span class="bar"><i id="packBar"></i></span><span id="packText" class="num sm">0/30</span></div>
+      <div class="stat pack"><span class="lbl" id="packLbl">Backpack</span><span class="bar"><i id="packBar"></i></span><span id="packText" class="num sm">0/30</span></div>
       <div class="stat clean"><span class="lbl">Clean</span><span class="bar"><i id="cleanBar"></i></span><span id="cleanPct" class="num sm">0%</span></div>
       <div class="stat vents"><span class="lbl">Vents</span><span id="ventCount" class="num">0/6</span></div>
     </div>
@@ -44,18 +44,24 @@
 
   <nav id="toolbar" aria-label="Tools">
     <button data-tool="walk" type="button" aria-label="Walk"><svg viewBox="0 0 24 24"><circle cx="12" cy="5.5" r="2.5"/><path d="M12 8v6m0 0l-3 6m3-6l3 6M8 11h8"/></svg><b>Walk</b></button>
-    <button data-tool="zone" type="button" aria-label="Zones"><svg viewBox="0 0 24 24"><rect x="4" y="5" width="16" height="14" rx="1" stroke-dasharray="3 2.4"/><path d="M9 15l3-7 3 7m-5-2h4"/></svg><b>Zones</b><i></i></button>
-    <button data-tool="belt" type="button" aria-label="Belt"><svg viewBox="0 0 24 24"><rect x="3" y="8" width="18" height="8" rx="4"/><path d="M8 10l2 2-2 2m5-4l2 2-2 2"/></svg><b>Belt</b><i></i></button>
-    <button data-tool="bin" type="button" aria-label="Bin"><svg viewBox="0 0 24 24"><path d="M5 8h14l-1.5 11h-11zM4 8l2-3h12l2 3M9 12h6"/></svg><b>Bin</b><i></i></button>
-    <button data-tool="vac" type="button" aria-label="Vac Post"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="7"/><path d="M12 5v14M5 12h14" /><circle cx="12" cy="12" r="2"/></svg><b>Vac Post</b><i></i></button>
-    <button data-tool="hive" type="button" aria-label="Hive"><svg viewBox="0 0 24 24"><path d="M12 3l4 2.3v4.6L12 12 8 9.9V5.3zM8 12l4 2.3v4.6L8 21l-4-2.1v-4.6zM16 12l4 2.3v4.6L16 21l-4-2.1v-4.6z"/></svg><b>Hive</b><i></i></button>
-    <button data-tool="cap" type="button" aria-label="Cap vent"><svg viewBox="0 0 24 24"><path d="M12 4l7 4v8l-7 4-7-4V8z"/><circle cx="12" cy="12" r="2.5"/></svg><b>Cap vent</b><i></i></button>
+    <button data-tool="zone" type="button" aria-label="Zones"><svg viewBox="0 0 24 24"><rect x="4" y="5" width="16" height="14" rx="1" stroke-dasharray="3 2.4"/><path d="M9 15l3-7 3 7m-5-2h4"/></svg><b>Zones</b></button>
+    <button data-tool="belt" type="button" aria-label="Belt"><svg viewBox="0 0 24 24"><rect x="3" y="8" width="18" height="8" rx="4"/><path d="M8 10l2 2-2 2m5-4l2 2-2 2"/></svg><b>Belt</b></button>
+    <button data-tool="splitter" type="button" aria-label="Splitter"><svg viewBox="0 0 24 24"><path d="M4 12h8m0 0l6-6m-6 6h8m-8 0l6 6M16 4h2v2M18 10l2 2-2 2M16 20h2v-2"/></svg><b>Splitter</b></button>
+    <button id="machBtn" type="button" aria-label="Machines" aria-haspopup="true"><svg viewBox="0 0 24 24"></svg><b>Bin</b><span class="caret">▴</span></button>
     <button data-tool="erase" type="button" aria-label="Remove"><svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg><b>Remove</b></button>
   </nav>
+  <div id="palette" hidden role="menu" aria-label="Machines"></div>
+  <div id="driveBar" hidden><span id="driveName" class="lbl">Rover</span><button id="parkBtn" class="hbtn" type="button">Park</button><button id="hopBtn" class="hbtn accent" type="button">Hop out</button></div>
   <div id="miniWrap"><canvas id="mini" aria-label="Minimap"></canvas><button id="findMe" class="hbtn" type="button">Find me</button></div>
 
   <div id="hint" aria-live="polite"></div>
   <div id="toast" aria-live="polite"></div>
+  <div id="title" hidden>
+    <div class="title-inner">
+      <div class="brand"><img src="icons/icon.svg" alt="" width="72" height="72"><div><h1>Dustworks</h1><p>Clean a junk-covered rock by hand, then build the machine that does it for you.</p></div></div>
+      <div id="slots"></div>
+    </div>
+  </div>
   <div id="modal" hidden><div class="modal-card" id="modalCard"></div></div>
 
   <script src="js/game.js"></script>
